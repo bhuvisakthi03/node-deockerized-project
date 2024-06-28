@@ -21,7 +21,7 @@ pipeline{
         }
         stage('Build Images'){
             steps{
-                sh 'docker build -t mynode .'
+                sh 'docker buildx build -t mynode .'
             }
         }
             
