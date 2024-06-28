@@ -19,6 +19,11 @@ pipeline{
                 sh 'npm run build'
             }
         }
+        stage('Build Images'){
+            
+        }
+            
+            
     }
 }
     
