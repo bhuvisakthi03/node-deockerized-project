@@ -20,6 +20,7 @@ pipeline{
             }
         }
         stage('Build Images'){
+            sh 'docker build -t my-node-app:1.0 .'
             
         }
             
