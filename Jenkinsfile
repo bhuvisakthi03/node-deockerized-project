@@ -19,14 +19,14 @@ pipeline{
                 sh 'npm run build'
             }
         }
-        stage('Build Images'){
+        stage('Build Image'){
             steps{
                 sh 'docker build -t  my-node-app:1.0 .'
             }
         }
-         stage("Docker Push"){
+         stage('Docker Push'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]){
+                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
                     sh 'docker push bhuvi03/my-node-app:1.0'
                     sh 'docker logout'
@@ -34,7 +34,6 @@ pipeline{
                 }
             }
         }
-            
     }
 }
     
