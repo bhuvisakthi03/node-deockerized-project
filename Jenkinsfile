@@ -19,9 +19,14 @@ pipeline{
                 sh 'npm run build'
             }
         }
-        stage('Build Image'){
+        stage('Buildkit'){
             steps{
                 sh 'export DOCKER_BUILDKIT=1'
+            }
+        }
+        stage('Build Image'){
+            steps{
+              
                 sh 'docker build  -t my-node-app .'
             }
         }
