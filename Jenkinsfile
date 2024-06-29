@@ -21,7 +21,7 @@ pipeline{
         }
         stage('Build Image'){
             steps{
-                sh 'docker build -t my-node-app .'
+                sh 'docker build . -t my-node-app'
             }
         }
          stage('Docker Push'){
